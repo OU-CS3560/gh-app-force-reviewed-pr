@@ -12,6 +12,20 @@ npm install
 npm start
 ```
 
+## Production Deployment
+
+```console
+gcloud functions deploy gh-app-force-reviewed-pr \
+        --gen2 \
+        --runtime=nodejs18 \
+        --region=us-east4 \
+        --source=. \
+        --entry-point=probotApp \
+        --trigger-http \
+        --allow-unauthenticated \
+        --env-vars-file .env.yaml
+```
+
 ## Docker
 
 ```sh
