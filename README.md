@@ -30,4 +30,4 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
 ## License
 
-[ISC](LICENSE) © 2023 Krerkkiat Chusap
+[MIT](LICENSE) © 2023 OU-CS3560
