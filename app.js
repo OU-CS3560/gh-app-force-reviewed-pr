@@ -10,7 +10,7 @@ module.exports = (app) => {
     const { master_branch, ref_type, ref, repository } = context.payload;
 
     if (
-      repository.name.startsWith("hw6-git2-s22-23") &&
+      repository.name.startsWith("hw-git2-f23-24") &&
       ref_type === "branch" &&
       ref === "main"
     ) {
