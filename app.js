@@ -14,10 +14,13 @@ module.exports = (app) => {
       ref_type === "branch" &&
       ref === "main"
     ) {
+      console.log(
+        `applying config to ${repository.owner.login}/${repository.name}`
+      );
       app.log.info(
         `applying config to ${repository.owner.login}/${repository.name}`
       );
-      await context.octokit.request(
+      let response = await context.octokit.request(
         `PUT /repos/${repository.owner.login}/${repository.name}/branches/main/protection`,
         {
           owner: repository.owner.login,
@@ -51,6 +54,21 @@ module.exports = (app) => {
             "X-GitHub-Api-Version": "2022-11-28",
           },
         }
+      );
+      if (response.status !== 200) {
+        app.log.warn(`a request to apply a branch protection rule failed`);
+        console.log(`a request to apply a branch protection rule failed`);
+      } else {
+        app.log.info(`branch protection rule is applied successfully`);
+        console.log(`branch protection rule is applied successfully`);
+      }
+      
+    } else {
+      app.log.info(
+        `skipped ${repository.owner.login}/${repository.name} since it does not match with the conditions`
+      );
+      console.log(
+        `skipped ${repository.owner.login}/${repository.name} since it does not match with the conditions`
       );
     }
   });

@@ -14,6 +14,8 @@ npm start
 
 ## Production Deployment
 
+Make sure that the `.env.yaml` is up-to-date.
+
 ```console
 gcloud functions deploy gh-app-force-reviewed-pr \
         --gen2 \
