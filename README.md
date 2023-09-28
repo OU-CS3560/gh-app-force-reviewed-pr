@@ -28,6 +28,18 @@ gcloud functions deploy gh-app-force-reviewed-pr \
         --env-vars-file .env.yaml
 ```
 
+## Stagging Deployment
+
+gcloud functions deploy gh-app-force-reviewed-pr-stagging \
+        --gen2 \
+        --runtime=nodejs18 \
+        --region=us-east4 \
+        --source=. \
+        --entry-point=probotApp \
+        --trigger-http \
+        --allow-unauthenticated \
+        --env-vars-file .env.yaml
+
 ## Docker
 
 ```sh
